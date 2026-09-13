@@ -129,6 +129,21 @@ const GLOSSARY = [
   {id:"direct-indirect-value", term:"Direct vs indirect value", def:"Two forms of productivity value from automation. Direct value is measurable and immediate — hours saved, cost of errors avoided, transaction volume, headcount capacity released — and is what you lead with in a business case because it's easiest to verify. Indirect value is real but harder to quantify — customer experience, reduced staff frustration, data quality improvements, strategic positioning. Senior leaders often weight both; a strong business case is honest about which figures are precise and which are directional.", src:"Module 1, Unit 4"},
   {id:"scoping-discipline", term:"Scoping discipline", def:"Described as the single most common way apprenticeship projects fail — not from lack of capability, but from choosing a scope too large to deliver in the programme timeline. The test for good scoping: is the opportunity specific, bounded, achievable within six to eight weeks of active build time, visible to the organisation, and supported by your line manager? A small, completed automation teaches and demonstrates more than a large, unfinished one.", src:"Module 1, Unit 4"},
   {id:"five-component-case", term:"The five-component business case", def:"The required structure for the apprenticeship gateway submission (approx. 600–900 words): (1) Process description, (2) The opportunity, (3) Productivity value assessment, (4) Feasibility check, (5) Next steps. Submitted together with the Unit 3 workflow map and suitability scoring as supporting evidence.", src:"Module 1, Unit 4"},
+  {id:"personal-data", term:"Personal data", def:"Any information relating to an identified or identifiable living person. Identifiability is the key test: if someone could be identified from the data either alone or in combination with other information you hold, it is personal data.", src:"Module 2, Unit 2"},
+  {id:"automated-decision-making", term:"Automated decision-making (Article 22A)", def:"A decision made solely by automated means, without meaningful human involvement, that produces a legal effect or a similarly significant effect on an individual (e.g. automated credit scoring, CV screening, automated redundancy selection). Since February 2026 this is not banned outright in the UK — it's permitted on an ordinary lawful basis, subject to the Article 22C safeguards.", src:"Module 2, Unit 2"},
+  {id:"special-category-data", term:"Special category data", def:"Eight protected categories under UK GDPR (Article 9) — health, racial/ethnic origin, religious/philosophical belief, political opinion, trade union membership, genetic data, biometric data used for ID, and sex life/sexual orientation — that require a specific, narrow lawful condition beyond an ordinary basis. High risk in tools that process unstructured free text, since these can surface incidentally rather than by design.", src:"Module 2, Unit 2 / My own glossary"},
+  {id:"lia", term:"Legitimate Interests Assessment (LIA)", def:"A formal, documented balancing test required before relying on \"legitimate interests\" as a lawful basis — weighing the organisation's interest against the impact on the individuals affected. An assertion in a business case is not a substitute for actually completing this assessment.", src:"Module 2, Unit 2 / My own glossary"},
+  {id:"dpia", term:"Data Protection Impact Assessment (DPIA)", def:"A formal governance review required under Article 35 UK GDPR when processing is likely to result in high risk to individuals — a fairly classic trigger being the combination of free-text personal data, AI/automated processing, and a third-party processor.", src:"Module 2, Unit 2 / My own glossary"},
+  {id:"proxy-bias", term:"Proxy bias", def:"Where an AI system doesn't capture a protected characteristic directly, but a feature that correlates with one (speech pattern, name format, activity level) ends up producing a disadvantageous outcome for people with that characteristic anyway. \"Not direct\" doesn't mean \"not at all\" — proxy pathways need to be mapped feature by feature, not waved away.", src:"Module 2, Unit 2 / My own glossary"},
+  {id:"pseudo-oversight", term:"Pseudo-oversight", def:"A human review step that is formally present in a workflow but practically ineffective, because the reviewer lacks the information, time, authority, or cognitive bandwidth to exercise genuine judgement. The opposite of what the four-question oversight framework is designed to test for.", src:"Module 2, Unit 3"},
+  {id:"explainability", term:"Explainability", def:"The extent to which the basis for an AI system's output can be understood by the people responsible for reviewing or acting on it. A design property of the system, not just a communication task performed after the fact.", src:"Module 2, Unit 3"},
+  {id:"risk-appetite", term:"Risk appetite", def:"The level of risk an organisation is willing to accept in pursuit of its objectives. In AI terms: how much uncertainty about a system's outputs is tolerated, how quickly it's willing to deploy before testing is complete, and how it balances innovation speed against the risk of harm.", src:"Module 2, Unit 3"},
+  {id:"ai-champion", term:"AI champion", def:"A practitioner who helps their organisation adopt AI responsibly by providing evidence-based analysis of both opportunities and risks, translating technical realities into terms non-technical leaders can act on, and advocating for responsible design as the foundation for sustainable value.", src:"Module 2, Unit 3"},
+  {id:"deepfake", term:"Deepfake", def:"A synthetic audio or video generated using AI, typically by training a model on existing recordings of a real person. Quality has increased significantly as the tools required to create them have become widely accessible.", src:"Module 2, Unit 4"},
+  {id:"spear-phishing", term:"Spear phishing", def:"A targeted phishing attack directed at a specific individual or organisation, using personalised details to increase believability — distinguished from generic phishing by its specificity. AI has dramatically reduced the cost and time required to produce spear phishing at scale.", src:"Module 2, Unit 4"},
+  {id:"prompt-injection", term:"Prompt injection", def:"An attack in which a user provides input designed to override or subvert an AI system's existing instructions, causing it to behave in ways its designers did not intend. Distinct from jailbreaking (which targets the base model) in that it exploits the specific configuration and system prompt of a deployed application.", src:"Module 2, Unit 4"},
+  {id:"least-privilege", term:"Least-privilege access", def:"The principle that any system, user, or agent should be granted only the minimum access rights necessary to perform its intended function. A standard information-security principle applied specifically to AI agent design — Principle 1 of the six safe agent adoption principles.", src:"Module 2, Unit 4"},
+  {id:"stakeholder-impact", term:"Stakeholder impact", def:"The totality of effects, intended and unintended, that an AI deployment has on the people directly and indirectly involved — including job role changes, skill requirements, workload shifts, psychological impact, and changes to professional identity.", src:"Module 2, Unit 4"},
 ];
 
 // Terms you've already reviewed via an exported decisions file — baked in as
@@ -141,7 +156,11 @@ const DEFAULT_DECISIONS = {
   "ai-builder":"confirmed","vsm":"confirmed","centaur":"confirmed","cyborg":"confirmed",
   "jagged-frontier":"confirmed","readiness-test":"confirmed","broken-process":"confirmed",
   "effort-value":"confirmed","direct-indirect-value":"confirmed","scoping-discipline":"confirmed",
-  "five-component-case":"confirmed"
+  "five-component-case":"confirmed","personal-data":"confirmed","automated-decision-making":"confirmed",
+  "special-category-data":"confirmed","lia":"confirmed","dpia":"confirmed","proxy-bias":"confirmed",
+  "pseudo-oversight":"confirmed","explainability":"confirmed","risk-appetite":"confirmed",
+  "ai-champion":"confirmed","deepfake":"confirmed","spear-phishing":"confirmed",
+  "prompt-injection":"confirmed","least-privilege":"confirmed","stakeholder-impact":"confirmed"
 };
 
 const FRAMEWORKS = [
@@ -180,6 +199,21 @@ const FRAMEWORKS = [
     module:"Module 2, Unit 1 (evidences K15)",
     body:"See glossary: Human-in-the-loop, Human-on-the-loop, Human-out-of-the-loop. Meaningful oversight requires three things from the reviewer: <b>information</b> (full input, not just output), <b>time</b> (realistic review volume), and <b>authority</b> (a genuine ability to reject/correct without penalty)."
   },
+  {
+    title:"The four questions every review step must answer",
+    module:"Module 2, Unit 3 (evidences K15)",
+    body:"The test for whether a human oversight checkpoint is genuine rather than pseudo-oversight: <b>1.</b> What is the human reviewing? <b>2.</b> What information do they have? <b>3.</b> What can they do if they disagree? <b>4.</b> Is the review time and cognitive load appropriate? If you can't answer all four cleanly for a checkpoint, that's a design gap — name it rather than gloss over it."
+  },
+  {
+    title:"The five ethical principles in AI",
+    module:"Module 2, Unit 2 (evidences K2)",
+    body:"<b>Fairness</b> — outputs don't disadvantage people via a protected characteristic or a proxy for one.<br><b>Transparency</b> — people can tell when AI was involved and roughly how it reached an output.<br><b>Accountability</b> — a named role, not just \"the organisation\", owns responsibility if something goes wrong.<br><b>Reliability</b> — the system performs consistently and failure modes are known, not just assumed away.<br><b>Privacy</b> — data handling meets legal requirements and genuine data-subject expectations, not just the letter of consent."
+  },
+  {
+    title:"Six principles of safe agent adoption",
+    module:"Module 2, Unit 4 (evidences K15, S2)",
+    body:"<b>1. Least-privilege access</b> — grant only the minimum access needed for the task, documented as a positive list of what's allowed rather than a negative list of what isn't.<br><b>2. Scope boundaries</b> — \"can do\" and \"is allowed to do\" are different questions; enforce architecturally (RBAC, read-only credentials, rate limits) not just in the system prompt.<br><b>3. Human approval gates for consequential actions</b> — anything not easily reversible needs a checkpoint before it happens.<br><b>4. Prompt injection awareness</b> — treat any user-supplied content the AI processes as potentially adversarial input, not just data.<br><b>5. Transparency with users</b> — people interacting with or affected by the agent should be able to tell AI was involved.<br><b>6. Failure modes and escalation paths</b> — define what happens when the agent gets it wrong or hits a case it can't handle, before it happens in production, not after."
+  },
 ];
 
 const MODULES = [
@@ -205,33 +239,53 @@ const MODULES = [
       "Activity 3 — The AI Opportunity Business Case"
     ], ksbs:["K5","K6","K9","S6","S13","S14"]},
   ]},
-  {mod:"Module 2 — Responsible AI & Safe Agent Adoption", status:"wip", units:[
-    {name:"Unit 1 — Human impact, collaboration & oversight (WIP — Lessons 1–2 supplied)", status:"wip", activities:[
-      "Activity 1 — Alternative route (for learners unable to conduct a stakeholder interview)",
-      "Activity 1 — The Stakeholder Wellbeing Interview (if feasible)",
+  {mod:"Module 2 — Responsible AI & Safe Agent Adoption", status:"done", units:[
+    {name:"Unit 1 — Human impact, collaboration & oversight", status:"done", activities:[
+      "Activity 1 — The Stakeholder Wellbeing Interview (Carlotta La Floresta, Technical Project Manager)",
       "Activity 2 — Human-AI Collaboration Reflection",
-      "Activity 3 — Sustainable AI Consideration"
+      "Activity 3 — Sustainable AI Consideration (added as a section to the Wellbeing Summary)"
     ], ksbs:["K3","K15","K26","B1","B2","B5"]},
+    {name:"Unit 2 — Legal, Ethical & Professional Standards", status:"done", activities:[
+      "The Legal Self-Assessment — all four sections (Data Protection & UK GDPR, Special Category Data, Employment & Equality, Transparency & Accountability) with flags and reflection",
+      "Activity 2 — Legal Considerations section added to the Unit 1 Stakeholder Wellbeing Summary"
+    ], ksbs:["K2","S2","B1"]},
+    {name:"Unit 3 — Responsible AI in Practice", status:"done", activities:[
+      "Activity 1 — Responsible Design Case Analysis (Cases A, B, C) with reflection connecting Case C to the Meetings Hub",
+      "Activity 2 — Annotating the Workflow Map (human oversight, data handling, error recovery, ethical design decision layers)",
+      "Activity 3 — Leadership Context Brief"
+    ], ksbs:["K1","K2","K15","S2","B2"]},
+    {name:"Unit 4 — Safe Agent Adoption and AI Scams (Responsible AI Adoption Plan)", status:"done", activities:[
+      "Component 1 — Stakeholder Impact Summary",
+      "Component 2 — Legal and Data Compliance Position",
+      "Component 3 — Responsible Design Decisions",
+      "Component 4 — Human Oversight Framework",
+      "Component 5 — Risk Register (all four categories, with likelihood, impact and mitigation)",
+      "Component 6 — Next Steps and Governance Sign-Off"
+    ], ksbs:["K1","K2","K3","K15","K26","S1","S2","B1","B2","B5"]},
   ]},
 ];
 
 const KSB_MAP = [
-  {code:"K3", desc:"Social and economic impacts of AI on roles, particularly non-technical staff", where:"Module 2, Unit 1"},
+  {code:"K1", desc:"The role of organisational leadership in responsible AI adoption; the business case for ethical AI including reputational risk, staff morale, and long-term sustainability", where:"Module 2, Units 3 and 4"},
+  {code:"K2", desc:"Legal and regulatory frameworks including employment rights, equality, data protection, GDPR; ethical principles and professional standards including fairness, transparency, and accountability", where:"Module 2, Units 2, 3 and 4"},
+  {code:"K3", desc:"Social and economic impacts of AI on roles, particularly non-technical staff", where:"Module 2, Units 1 and 4"},
   {code:"K5", desc:"Methods to identify opportunities to enhance productivity — improve processes, reduce waste, increase satisfaction, optimise outcomes", where:"Module 1, Units 1, 2, 3, 4"},
   {code:"K6", desc:"The importance of designing AI and automation systems that augment rather than replace human work, where feasible", where:"Module 1, Units 1 and 4"},
   {code:"K9", desc:"AI and automation concepts, models and limitations. The impact adoption may have on workplace culture and wellbeing", where:"Module 1, Units 1, 2, 3, 4"},
-  {code:"K15", desc:"Principles of human oversight and human-AI collaboration", where:"Module 2, Unit 1"},
-  {code:"K26", desc:"Benefits of wellbeing and safe working practices", where:"Module 2, Unit 1"},
+  {code:"K15", desc:"Principles of human oversight and human-AI collaboration", where:"Module 2, Units 1, 3 and 4"},
+  {code:"K26", desc:"Benefits of wellbeing and safe working practices", where:"Module 2, Units 1 and 4"},
+  {code:"S1", desc:"Use digital technologies collaboratively and securely", where:"Module 2, Unit 4"},
+  {code:"S2", desc:"Follow ethical, responsible and safe working practices", where:"Module 2, Units 2, 3 and 4"},
   {code:"S6", desc:"Workflow and process mapping to identify problems or inefficiencies and recommend solutions, including pilots, incremental changes and scaling opportunities", where:"Module 1, Units 3 and 4"},
   {code:"S13", desc:"Identify opportunities to deliver automation. Support leaders in integrating ethical, empathetic approaches when decision-making", where:"Module 1, Units 2, 3, 4"},
   {code:"S14", desc:"Support in the identification and evaluation of opportunities for increased productivity — including use of low/no-code tools, streamlining processes, and use of AI platforms", where:"Module 1, Units 2, 3, 4"},
-  {code:"B1", desc:"Work independently and take responsibility for a productive, professional working environment", where:"Module 2, Unit 1"},
-  {code:"B2", desc:"Adapt to changing circumstances, being flexible and responding proactively", where:"Module 2, Unit 1"},
-  {code:"B5", desc:"Sustainable mindset in digital activities", where:"Module 2, Unit 1"},
+  {code:"B1", desc:"Work independently and take responsibility for a productive, professional working environment", where:"Module 2, Units 1, 2 and 4"},
+  {code:"B2", desc:"Adapt to changing circumstances, being flexible and responding proactively", where:"Module 2, Units 1, 3 and 4"},
+  {code:"B5", desc:"Sustainable mindset in digital activities", where:"Module 2, Units 1 and 4"},
 ];
 
 const SEED_OTJ = [
-  {date:'2026-05-21',desc:'Attended Launch Meeting',hours:1.5,type:'Launch Meeting'},
+  {date:'2026-05-20',desc:'Attended Launch Meeting',hours:1.5,type:'Launch Meeting'},
   {date:'2026-05-21',desc:'Created a search tool for agents pricing per recordal type out of 3 big spreadsheets',hours:1,type:'Other'},
   {date:'2026-05-22',desc:'Completed Lesson 1 of Unit 1 (Module 1)',hours:0.5,type:'Self-Paced Learning'},
   {date:'2026-05-26',desc:'Completed Lesson 2 of Unit 1 (Module 1)',hours:1.5,type:'Self-Paced Learning'},
@@ -255,41 +309,59 @@ const SEED_OTJ = [
   {date:'2026-06-17',desc:'Completed Lesson 1 of Unit 3 (Module 1)',hours:0.5,type:'Self-Paced Learning'},
   {date:'2026-06-22',desc:'Completed Lesson 2 of Unit 3 (Module 1)',hours:1.5,type:'Self-Paced Learning'},
   {date:'2026-06-25',desc:'Completed Lesson 3 of Unit 3 (Module 1)',hours:1.5,type:'Self-Paced Learning'},
-  {date:'2026-06-29',desc:'Created a Meetings Hub prototype, where we can paste scripts from meetings and will extract a summary, actions, risks and other info per meeting. But also create actions, risks and other logs across all the meetings. And it also contains an AI chat/search option to be able to ask anything about any of the content in the Hub.',hours:2,type:'Projects'},
+  {date:'2026-06-29',desc:'Created a Meetings Hub prototype, where we can paste scripts from meetings and will extract a summary, actions, risks and other info per meeting. BUt also create actions, risks and other logs across all the meetings. And it also contains an AI chat/search option to be able to ask anything about any of the content in the Hub.',hours:2,type:'Projects'},
   {date:'2026-06-30',desc:'Created app in Lovable for the Meetings Hub prototype done with Claude.',hours:1.5,type:'Projects'},
   {date:'2026-06-30',desc:'Course Companion - Created an app in Claude where I can upload content from the course and create a glossary, a list of AI prompts, KSB Tracker and other useful info',hours:0.5,type:'Projects'},
-  {date:'2026-07-01',desc:'Created app in Lovable for the Meetings Hub prototype done with Claude - refinement',hours:4,type:'Projects'},
+  {date:'2026-07-01',desc:'Created app in Lovable for the Meetings Hub prototype done with Claude. - refinement',hours:4,type:'Projects'},
   {date:'2026-07-07',desc:'Created a "Career Certification explorer". A tool that based on my skills, experience and career aspirations, recommends which courses could be useful, provides info about pricing, links etc. And advises me further on career paths. I\'ve also published it in Netlify',hours:1.5,type:'Projects'},
   {date:'2026-07-07',desc:'Created a prompt library',hours:0.5,type:'Projects'},
   {date:'2026-07-08',desc:'Redone part of the workbook for Lesson 3 of Unit 3 (Module 1), including a new candidate',hours:0.5,type:'Self-Paced Learning'},
-  {date:'2026-07-09',desc:'Created a netlify account and started experimenting moving tools there. Need to look at setting also a Github account to manage updates more efficiently, that\'s pending.',hours:1,type:'Projects'},
-  {date:'2026-07-10',desc:'Created a Netlify deploy console in Claude for mobile view. Needs more refinement.',hours:0.25,type:'Projects'},
+  {date:'2026-07-09',desc:'have created a netlify account and started experimenting moving tools there. Need to look at setting also a Github account to manage udpates more efficiently, that\'s pending.',hours:1,type:'Projects'},
+  {date:'2026-07-10',desc:'Created a Netlify deploy console in Claude for mobile view. needs more refinement.',hours:0.25,type:'Projects'},
   {date:'2026-07-14',desc:'Created a new artifact in Claude to organise and categorise my chats',hours:0.25,type:'Projects'},
-  {date:'2026-07-13',desc:'Put together a draft presentation for a support process based on reference material. I fed AI with previous slides with similar structure to reuse, and some other information relevant for the content. Then I also fed the PPT template layout I wanted to use, and created a draft. That had to be edited quite heavily, but at least, I didn\'t have to create it from scratch.',hours:1,type:'Projects'},
+  {date:'2026-07-13',desc:'Put together a draft presentation for a support process based on reference material. I fed AI with previous slides with similar structure to reuse, and some other information relevant for the content. Then I also fed the PPT template layout I wanted to use, and created a draft. That had to be edited quite heavily, but at least, I didnt have to create it from scratch.',hours:1,type:'Projects'},
   {date:'2026-07-09',desc:'Completed Lesson 1 of Unit 4 (Module 1)',hours:1,type:'Self-Paced Learning'},
   {date:'2026-07-13',desc:'Completed Lesson 2 of Unit 4 (Module 1)',hours:1,type:'Self-Paced Learning'},
   {date:'2026-07-15',desc:'Completed Lesson 3 of Unit 4 (Module 1)',hours:1.5,type:'Self-Paced Learning'},
   {date:'2026-07-16',desc:'Put together a Claude artifact prototype to keep track of a future process analysis I\'ll be running, along with an area to track feedback and recommendations for process improvements. Idea is to keep all digital in an area all team members involved can access, rather than having lots of documents in a sharepoint or similar. This is still a vague POC, and I need to discuss with the AI council about hosting along with the Meeting Hub project.',hours:1,type:'Projects'},
   {date:'2026-07-16',desc:'Meeting with instructor',hours:0.75,type:'1:1 Meetings'},
-  {date:'During July 2026',desc:'Conversations with Becky (AI Adoption & Enablement Programme lead)',hours:2,type:'Other'},
+  {date:'During July 2026',desc:'Conversations with Becky (AI Adoption & Enbalement Programme lead)',hours:2,type:'Other'},
   {date:'2026-07-23',desc:'Added more details to the IP Services Knowledge Base',hours:2,type:'Projects'},
-  {date:'2026-07-30',desc:'Created a Process Review Tool + Word questionnaire. Still empty — was just to give me ideas of how to structure the conversation and overall exercise with the team',hours:1,type:'Projects'},
-  {date:'2026-07-30',desc:'Created an app with information on how to plan if I wanted to create a YouTube channel for education purposes, with ideas on content, structure, marketing, etc. Just to give me an idea if in future I wanted to explore additional revenue channels.',hours:1,type:'Other'},
+  {date:'2026-07-30',desc:'Created a Process Review Tool + Word questionnaire. Its still empty, and it was just to give me ideas of how to structure the conversation and overall exercise with the team',hours:1,type:'Projects'},
+  {date:'2026-07-30',desc:'I\'ve created an app with information on how to plan if I wanted to create a Youtube channel for education purposes, with ideas on content, structure, marketing, etc. This is just to give me an idea if in the future I wanted to explore some additional revenue channels.',hours:1,type:'Other'},
   {date:'2026-08-05',desc:'Meeting with instructor',hours:0.75,type:'1:1 Meetings'},
   {date:'2026-08-05',desc:'Cowork tool evaluation. Assessed Claude Cowork vs. standard chat against real project workflows (KB, tracker, PatOrg work)',hours:0.5,type:'Projects'},
   {date:'2026-08-10',desc:'Recordals process documentation. Synthesised two stakeholder transcripts into a structured Word doc (process steps, risk matrix) and pushed 7 new entries to IP Services Knowledge Base on GitHub',hours:1.5,type:'Projects'},
-  {date:'2026-08-10',desc:'Summarised some meeting minutes, actions and challenges — misc meetings',hours:1,type:'Projects'},
-  {date:'2026-08-11',desc:'Reviewed emails for different stakeholders with Claude to ensure I was conveying the right ideas in the right tone.',hours:1,type:'Projects'},
+  {date:'2026-08-10',desc:'Summarised some meetings minutes, actions and challenges - misc meetings',hours:1,type:'Projects'},
+  {date:'2026-08-11',desc:'reviewed emails for different stakeholders with Claude to ensure I was conveying the right ideas in the right tone.',hours:1,type:'Projects'},
   {date:'2026-08-19',desc:'PatOrg UAT limitations report. Major deliverable: built findings explorer (HTML), detailed Word report, and executive summary from raw UAT source material (~4,065 items, 112 countries) for senior leadership risk report',hours:4,type:'Office hours'},
-  {date:'2026-08-20',desc:'Creation of Jira knowledge base app, adding how-tos, JQL queries, info about certificates, and anything related to how to use Jira',hours:1,type:'Projects'},
-  {date:'2026-08-21',desc:'IP recordal quoting research, IP KB updated, and creation of app prototype to extract information from customer emails and categorise the IP information automatically for quotation. Done with generic online information while gathering the real internal quotation process and examples from the team; also pursuing AI licenses and hosting so this can be done within corporate environments rather than a personal Claude license.',hours:1,type:'Office hours'},
-  {date:'2026-08-20',desc:'Kick-off with 3rd party vendor Netpremacy, who will support RWS with assessment and implementation of use cases, including the Meetings Hub proposal. Workshops to follow to assess all use cases presented and agree next steps',hours:0.5,type:'Office hours'},
-  {date:'2026-08-22',desc:'Several conversations with the Product Manager and a Director on how to resolve the quotation problems, what automation solutions can be implemented, and how to present a business case to get budget and resources',hours:1,type:'Office hours'},
-  {date:'2026-08-24',desc:'Tried to replicate the internal quote tool in MS Power Apps as a substitute for Claude + hosting — progressing very slowly, nothing functional yet',hours:1.5,type:'Office hours'},
-  {date:'2026-08-25',desc:'Completed Lesson 1 of Unit 3 (Module 1)',hours:0.5,type:'Self-Paced Learning'},
-  {date:'2026-08-25',desc:'Completed Lesson 2 of Unit 3 (Module 1)',hours:1.5,type:'Self-Paced Learning'},
+  {date:'2026-08-20',desc:'Creation of Jira knowledge base app, where I\'m adding how tos, JQL queries, info about certificates, and anything related to how to use Jira',hours:1,type:'Projects'},
+  {date:'2026-08-21',desc:'IP recordal quoting research, IP KB updated, and creation of app prototype to be able to extract information from customer emails and categorised the IP information automatically so it can be used for quotation. This was done with generic online information, as I\'m still trying to gather the real internal quotation process and obtain examples from the team on the material they get from customers. At the same time, I\'m trying to get access to AI licenses and hosting, so these activities can be done within corporate environments, rather than prototyping with generic info on my personal Claude license.',hours:1,type:'Office hours'},
+  {date:'2026-08-20',desc:'Was part of an initial kick off with a 3rd party vendor - Netpremacy - who\'s going to support RWS with the assessment and implementation of use cases, like my proposal of the meetings Hub. Workshops will take place where they will assess all the use cases presented and then agree on the next steps',hours:0.5,type:'Office hours'},
+  {date:'2026-08-22',desc:'Several conversations with the Product manager and a Director, on how we can resolve the problems we have for quotation, and what automation solutions can be implemented. As well as how we present a business case to get the budget and resources we need.',hours:1,type:'Office hours'},
+  {date:'2026-08-24',desc:'Tried to replicate the internal quote tool in MS Power apps, as substitute for Claude + hosting, thought progressing very slowly, and not yet anything functional',hours:1.5,type:'Office hours'},
+  {date:'2026-08-24',desc:'Completed Lesson 1 of Unit 1 (Module 2)',hours:0.5,type:'Self-Paced Learning'},
+  {date:'2026-08-24',desc:'Completed Lesson 2 of Unit 1 (Module 2)',hours:1.5,type:'Self-Paced Learning'},
   {date:'2026-08-25',desc:'Updated my Apprenticeship tracker with more information, and a AI portfolio. Published in Netlify via Github',hours:1,type:'Projects'},
-  {date:'2026-08-25',desc:"Created an AI portfolio specific to me, and everything I've done AI related within this Apprenticeship but also outside. Published in Netlify via Github",hours:1,type:'Projects'},
+  {date:'2026-08-25',desc:'Created an AI portfolio specific to me, and everything I\'ve done AI related within this Apprenticeship but also outside. Published in Netlify via Github',hours:1,type:'Projects'},
+  {date:'2026-08-25',desc:'Completed Lesson 3 of Unit 1 (Module 2)',hours:1.5,type:'Self-Paced Learning'},
+  {date:'2026-08-26',desc:'School check in app. Building a HTML app where we can register queries and answers from our kids went they come back from school, so we can compare answers across years. also can record milestones, photos etc,. Still work in progress',hours:8,type:'Projects'},
+  {date:'2026-08-27',desc:'Meeting with instructor',hours:0.75,type:'1:1 Meetings'},
+  {date:'Aug 27 - Sep 4, 2026',desc:'School check in app. Refinement and testing. Still ongoing This includes, experimenting with setting a Supabase DB (still some pending settings), creating testing plan, and adding new functionalities.',hours:10,type:'Projects'},
+  {date:'2026-08-27',desc:'Using AI to create a Business case for the Meetings Hub idea. Still ongoing.',hours:1,type:'Office hours'},
+  {date:'2026-09-02',desc:'Completed Lesson 1 of Unit 2 (Module 2)',hours:1,type:'Self-Paced Learning'},
+  {date:'2026-09-03',desc:'Completed Lesson 2 of Unit 2 (Module 2)',hours:1.5,type:'Self-Paced Learning'},
+  {date:'2026-09-07',desc:'Completed Lesson 3 of Unit 2 (Module 2)',hours:1.5,type:'Self-Paced Learning'},
+  {date:'2026-09-08',desc:'Completed Lesson 1 of Unit 3 (Module 2)',hours:1,type:'Self-Paced Learning'},
+  {date:'2026-09-08',desc:'Completed Lesson 2 of Unit 3 (Module 2)',hours:0.5,type:'Self-Paced Learning'},
+  {date:'2026-09-08',desc:'Completed Lesson 3 of Unit 3 (Module 2)',hours:1,type:'Self-Paced Learning'},
+  {date:'2026-09-08',desc:'Completed Lesson 3 of Unit 3 (Module 2) - Update flow map',hours:0.5,type:'Self-Paced Learning'},
+  {date:'2026-09-09',desc:'Completed Lesson 3 of Unit 3 (Module 2) - Leadership context Brief',hours:0.5,type:'Self-Paced Learning'},
+  {date:'2026-09-09',desc:'Built a IP Programme Intellingence Hub in Copilot and Claude, with information about the new strategy, and where I\'d be adding more details. So i can use this for searching information, but also with AI capabilities to be able to question things.',hours:1.5,type:'Projects'},
+  {date:'2026-09-09',desc:'Created a HTML based tool for calculating team capacity, based on an excel template with the calculations that was provided to the team. This HTML is specific to the programme I work on, with a breakdown of the different teams involved.',hours:2,type:'Projects'},
+  {date:'2026-09-09',desc:'Completed Lesson 1 of Unit 4 (Module 2)',hours:1,type:'Self-Paced Learning'},
+  {date:'2026-09-09',desc:'Completed Lesson 2 of Unit 4 (Module 2)',hours:1,type:'Self-Paced Learning'},
+  {date:'2026-09-14',desc:'Completed Lesson 3 of Unit 4 (Module 2)',hours:2,type:'Self-Paced Learning'},
 ];
 
 const PORTFOLIO_EVIDENCE = [
@@ -297,6 +369,7 @@ const PORTFOLIO_EVIDENCE = [
   {title:"The AI Apprenticeship Tracker itself", desc:"This app — glossary, KSB map, OTJ log, modules and portfolio evidence, self-built and self-maintained across the programme. Logged in the OTJ record as its own activity (K5, S4) and evolved from an earlier prototype called \"Course Companion\" (built 30 June, before the full portfolio system existed). Evidence of independently building and maintaining a tool that supports the practitioner role itself, not just the deliverables it produces."},
   {title:"Recordals quoting automation — candidate opportunity", desc:"The Recordals Quote Assistant work (quoting framework, prototype, and the in-progress Power Platform build with Dataverse tables) looks like the strongest candidate for your actual Unit 3/Unit 4 apprenticeship opportunity — it's been through suitability-style thinking and is now in a real feasibility/build phase. Flagged in To verify: worth confirming this is the process you're formally taking through the gateway submission, since that determines how much of the surrounding work (Chris's and Inam's competing prototypes, the Power Platform build itself) counts as first-party evidence versus context."},
   {title:"IP Meetings Hub (Lovable prototype)", desc:"A Lovable/React/Supabase prototype that extracts summaries, actions and risks from pasted meeting scripts, with cross-meeting logs and an AI chat/search layer. Included here even though it was primarily a testing exercise in Lovable rather than a finished production tool — the build itself is evidence of evaluating and working hands-on with a no-code/low-code AI platform (S13, S14), which is exactly the kind of tool orientation Unit 2 asks for. Also listed in the general Loles AI Portfolio under IP Programme & work tools."},
+  {title:"IP Meetings Hub — Module 2 Responsible AI evidence", desc:"The full Module 2 evidence trail built around the same Meetings Hub prototype: the Stakeholder Wellbeing Interview with Carlotta La Floresta (Unit 1), the four-section Legal Self-Assessment covering UK GDPR, special category data, employment/equality, and transparency/accountability (Unit 2), the Responsible Design Case Analysis and annotated workflow map with human oversight, data handling, error recovery and ethical design decision layers (Unit 3), and the six-component Responsible AI Adoption Plan — stakeholder impact, compliance position, design decisions, oversight framework, risk register, and governance next steps (Unit 4). One real project carried end-to-end through the whole responsible-AI module, showing the same tool through discovery, legal, ethical, and governance lenses in turn."},
 ];
 
 const TOVERIFY = [
